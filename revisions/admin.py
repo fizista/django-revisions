@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 """
-To make sure ``django-versioning`` works smoothly with the admin interface, you should add ``revisions.middleware.VersionedModelRedirectMiddleware`` to your middlewares in ``settings.py``, e.g.::
+To make sure ``django-revisions`` works smoothly with the admin interface, you should add ``revisions.middleware.VersionedModelRedirectMiddleware`` to your middlewares in ``settings.py``, e.g.::
 
     MIDDLEWARE_CLASSES = (
         'django.middleware.common.CommonMiddleware',

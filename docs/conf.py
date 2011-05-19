@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# django-versioning documentation build configuration file, created by
+# django-revisions documentation build configuration file, created by
 # sphinx-quickstart on Thu May 27 10:28:17 2010.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -38,7 +38,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'django-versioning'
+project = u'django-revisions'
 copyright = u'2010, Stijn Debrouwere'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -159,7 +159,7 @@ html_static_path = ['_static']
 #html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'django-versioningdoc'
+htmlhelp_basename = 'django-revisionsdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -173,7 +173,7 @@ htmlhelp_basename = 'django-versioningdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'django-versioning.tex', u'django-versioning Documentation',
+  ('index', 'django-revisions.tex', u'django-revisions Documentation',
    u'Stijn Debrouwere', 'manual'),
 ]
 
