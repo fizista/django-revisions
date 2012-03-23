@@ -39,7 +39,7 @@ class LatestManager(models.Manager):
         # to multiple queries or working entirely with raw SQL.
         comparator_name = base.get_comparator_name()
         comparator_table = get_table_for_field(qs.query.model, comparator_name)
-        where = '"{comparator_table}"."{comparator}" = (SELECT MAX("{comparator}") FROM "{table}" as sub WHERE "{table}".cid = sub.cid)'.format(
+        where = '{comparator_table}.{comparator} = (SELECT MAX({comparator}) FROM {table} as sub WHERE {table}.cid = sub.cid)'.format(
             table=quote_name(base_table),
             comparator=quote_name(comparator_name),
             comparator_table=quote_name(comparator_table))
