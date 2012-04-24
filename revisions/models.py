@@ -93,7 +93,7 @@ class VersionedModelBase(models.Model, utils.ClonableMixin):
         return qs
 
     def check_if_latest_revision(self):
-        return self.comparator >= max([version.comparator for version in self.get_revisions()])
+        return self.comparator >= self.get_latest_revision().comparator
 
     @classmethod
     def fetch(cls, criterion):
