@@ -93,6 +93,11 @@ class VersionedModelBase(models.Model, utils.ClonableMixin):
         return qs
 
     def check_if_latest_revision(self):
+        if self.comparator is None:
+            raise ValueError(
+                "Cannot check if latest revision with " +
+                "attribute '%s' unset." % self.comparator_name
+            )
         return self.comparator >= self.get_latest_revision().comparator
 
     @classmethod
