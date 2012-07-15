@@ -244,8 +244,7 @@ class VersionedModelBase(models.Model, utils.ClonableMixin):
         # and using that value for a bundle ID is rather hard.)
         if not self.cid:
             self.cid = uuid.uuid4().hex
-
-        self.validate_bundle()
+            self.validate_bundle()
         super(VersionedModelBase, self).save(*vargs, **kwargs)
 
     def delete_revision(self, *vargs, **kwargs):
