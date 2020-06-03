@@ -82,14 +82,23 @@ class ModelTests(TestCase):
                 "old_revision_pks": set([1,2,4]),
                 "latest_revision_pks": set([3,5]),
                 }
-        
+
         actual = {
-            "old_revisions": [story for story in self.story.__class__.latest.all() if not 
-                story.check_if_latest_revision()],
+            "old_revisions": [
+                story
+                for story in self.story.__class__.latest.all()
+                if not story.check_if_latest_revision()
+            ],
             "latest_revisions": self.story.__class__.latest.all(),
-            "latest_revision_pks": set([story.pk for story in self.story.__class__.latest.only(self.story.pk_name).all()])       
-            }
-        
+            "latest_revision_pks": {
+                story.pk
+                for story in self.story.__class__.latest.only(
+                    self.story.pk_name
+                ).all()
+            },
+        }
+
+
         self.assertEquals(len(expected['latest_revision_pks']), len(actual['latest_revisions']))
         self.assertEquals(expected['latest_revision_pks'], actual['latest_revision_pks'])
         self.assertEquals(actual['latest_revisions'][0].title, 'This is a little story (final)')

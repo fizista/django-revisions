@@ -187,9 +187,7 @@ class VersionedModelBase(models.Model, utils.ClonableMixin):
         # By all means, I'd welcome suggestions for prettier code.
         ref_name = self._meta._name_map[related_model_name][0].field.name
         pks = [story.pk for story in self.get_revisions()]
-        objs = related_model._default_manager.filter(**{ref_name + '__in': pks})
-
-        return objs
+        return related_model._default_manager.filter(**{ref_name + '__in': pks})
 
     def __getattr__(self, name):
         # we catch all lookups that start with 'related_'
